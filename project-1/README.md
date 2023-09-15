@@ -1,11 +1,10 @@
-# Modelo para Apresentação do Projeto 1 - Modelo Conceitual e Lógico
+# Projeto 1 - Modelo Conceitual e Lógico
 
 ## Slides da Apresentação
-> Coloque aqui o link para o PDF da apresentação
+[PDF](PROJETO 1 - Slides MC536.pdf)
 
 ## Motivação e Contexto
 O objetivo principal desta primeira fase do projeto é elaborar uma modelagem conceitual e lógica de um banco de dados relacional que seja capaz de responder a algumas perguntas interessantes sobre composições químicas e valores nutricionais de alimentos, analisando-os individual e coletivamente (como parte de uma receita alimentar). Além dessas análises, também relacionamos alimentos à regiões e países do mundo, o que possibilita que também façamos observações geopolíticas mais abrangentes. As perguntas que pretendemos responder estão descritas abaixo. Para montarmos o modelo, analisamos 5 bancos de dados diferentes com diversas informações químicas, nutricionais e geográficas sobre alimentos. Pensando em uma integração deles num modelo relacional, fomos capazes de elaborar um modelo geral que conseguisse responder às perguntas levantadas. O modelo conceitual final em entidade-relacionamento (ER), o modelo lógico relacional e os slides de apresentação estão presentes no repositório, e são de livre acesso.
-
 
 ## Bases de Dados
 título da base | link | breve descrição
