@@ -1,4 +1,4 @@
-# Análise do consumo de comidas no mundo
+# Projeto Análise do consumo de comidas no mundo
 
 # Equipe Analistas de Cardápios
 * Pedro Henrique Antoine Cortez Daccache - 251572
