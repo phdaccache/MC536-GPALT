@@ -18,8 +18,7 @@ Nutrient Recommendations: Dietary Reference Intakes (DRI) | [link](https://ods.o
 
 ## Modelo Conceitual
 
-> Coloque aqui a imagem do modelo conceitual em ER ou UML, como o exemplo a seguir:
-> ![ER Taxi](images/er-taxi.png)
+![Entidade Relacional](images/ER.jpg)
 
 ## Modelos Lógicos
 ~~~
