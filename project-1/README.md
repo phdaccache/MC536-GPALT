@@ -23,18 +23,25 @@ Nutrient Recommendations: Dietary Reference Intakes (DRI) | [link](https://ods.o
 ## Modelos Lógicos
 ~~~
 ORIGEM(_Nome_, Tipo)
+
 RECEITA(_Nome_, _BancoOriginal_, Origem)
 	Origem chave estrangeira -> Origem(Nome)
+
 INGREDIENTE(_Nome_, Classificacao)
 	Classificacao chave estrangeira -> Classificacao(Nome)
+
 INGREDIENTECOMPOSTO(_IngredienteComposto_, _IngredienteOriginal_)
 	IngredienteComposto chave estrangeira -> Ingrediente(Nome)
 	IngredienteOriginal chave estrangeira -> Ingrediente(Nome)
+
 SABOR(_Id_, Ingrediente1, Ingrediente 2)
 	Ingrediente1 chave estrangeira -> Ingrediente(Nome)
 	Ingrediente2 chave estrangeira -> Ingrediente(Nome)
+
 CLASSIFICACAO(_Nome_, CategoriaSuperior)
+
 COMPONENTE(_Nome_, Tipo)
+
 ORGAOPUBLICO(_Nome_)
 
 INGREDIENTESDASRECEITAS(_Receita_, _Banco_, _Ingrediente_, Quantidade, Unidade)
