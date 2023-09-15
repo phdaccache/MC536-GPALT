@@ -49,6 +49,8 @@ RECOMENDACAO(_Orgao_, _Componente_, FaixaEtaria, QuantidadeMg)
 	Componente chave estrangeira -> Componente(Nome)
 ~~~
 
+## Perguntas de Pesquisa/Análise
+
 #### Pergunta/Análise 1
 * Quais os componentes químicos mais presentes nas receitas em cada região do mundo?
   * Analisando as receitas das regiões do mundo, buscamos descobrir quais componentes químicos são prevalecentes na culinária da região.
