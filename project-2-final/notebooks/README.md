@@ -1,0 +1,1 @@
+Testes ou prototipos relacionados ao projeto que tenham sido executados no Jupyter. Se for SQL, deve ser colocado no notebook através do BeakerX.

@@ -1,0 +1,1 @@
+Dados de terceiros em formato usado para entrada na transformação
