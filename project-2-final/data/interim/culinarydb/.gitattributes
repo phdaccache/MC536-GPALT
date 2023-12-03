@@ -6,3 +6,4 @@ ingredientesnasreceitas.csv filter=lfs diff=lfs merge=lfs -text
 nomesingredients.csv filter=lfs diff=lfs merge=lfs -text
 origens.csv filter=lfs diff=lfs merge=lfs -text
 receitas.csv filter=lfs diff=lfs merge=lfs -text
+classificacoescompostos.csv filter=lfs diff=lfs merge=lfs -text
