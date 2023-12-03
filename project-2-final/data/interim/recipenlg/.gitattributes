@@ -1,0 +1,5 @@
+ingredientesnasreceitas.csv filter=lfs diff=lfs merge=lfs -text
+ners.csv filter=lfs diff=lfs merge=lfs -text
+quantidadesfinais.csv filter=lfs diff=lfs merge=lfs -text
+receitasfinais.csv filter=lfs diff=lfs merge=lfs -text
+recipes.csv filter=lfs diff=lfs merge=lfs -text

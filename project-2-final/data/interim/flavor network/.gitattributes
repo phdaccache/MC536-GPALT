@@ -1,0 +1,8 @@
+origens.csv filter=lfs diff=lfs merge=lfs -text
+receitas.csv filter=lfs diff=lfs merge=lfs -text
+sabores.csv filter=lfs diff=lfs merge=lfs -text
+saboresfinais.csv filter=lfs diff=lfs merge=lfs -text
+srep00196-s2-headerless.csv filter=lfs diff=lfs merge=lfs -text
+srep00196-s3-headerless.csv filter=lfs diff=lfs merge=lfs -text
+ingredientesdasreceitas.csv filter=lfs diff=lfs merge=lfs -text
+ingredientesdasreceitaspadronizados.csv filter=lfs diff=lfs merge=lfs -text

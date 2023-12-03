@@ -1,0 +1,8 @@
+receitasfinais.csv filter=lfs diff=lfs merge=lfs -text
+associacaocompostos.csv filter=lfs diff=lfs merge=lfs -text
+dadoscompostos.csv filter=lfs diff=lfs merge=lfs -text
+ingredientecomposto.csv filter=lfs diff=lfs merge=lfs -text
+ingredientesnasreceitas.csv filter=lfs diff=lfs merge=lfs -text
+nomesingredients.csv filter=lfs diff=lfs merge=lfs -text
+origens.csv filter=lfs diff=lfs merge=lfs -text
+receitas.csv filter=lfs diff=lfs merge=lfs -text
