@@ -1,4 +1,0 @@
-01_Recipe_Details.csv filter=lfs diff=lfs merge=lfs -text
-02_Ingredients.csv filter=lfs diff=lfs merge=lfs -text
-03_Compound_Ingredients.csv filter=lfs diff=lfs merge=lfs -text
-04_Recipe-Ingredients_Aliases.csv filter=lfs diff=lfs merge=lfs -text
