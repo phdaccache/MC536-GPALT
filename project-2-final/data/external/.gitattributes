@@ -1,0 +1,3 @@
+associacaofinal.csv filter=lfs diff=lfs merge=lfs -text
+orgaopublico.csv filter=lfs diff=lfs merge=lfs -text
+recomendacao.csv filter=lfs diff=lfs merge=lfs -text
