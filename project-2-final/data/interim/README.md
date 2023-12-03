@@ -1,1 +1,0 @@
-Dados intermediários, e.g., resultado de transformação

@@ -1,1 +1,0 @@
-Dados finais usados para a publicação
