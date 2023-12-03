@@ -6,8 +6,9 @@ Como alguns arquivos utilizados eram muito grandes (+300MB), utilizamos o Git La
 # Git Large File Storage (LFS)
 Git Large File Storage substitui arquivos que ocupam grandes tamanhos de memória em um repositório Git, como os bancos de dados originais que estão em ```./raw```, por arquivos de texto que funcionam como ponteiros dentro do repositório. O conteúdo dos arquivos é guardado em servidores remotos para que a manutenção e clonagem do repositório permaneça eficiente. 
 
-A seguir, mostraremos como podemos instalar o Git LFS em distribuições Linux como Ubuntu e Debian para substituirmos os ponteiros que estão no diretório pelo conteúdo original dos arquivos, que estão armazenados nos servidores do Git LFS. Mais informações sobre o Git LFS e sobre a instalação em mais sistemas operacionais podem ser encontradas no [site oficial](https://git-lfs.com/).
-#Instalação:
+A seguir, mostraremos como podemos instalar o Git LFS em distribuições Linux como Ubuntu e Debian para substituirmos os ponteiros que estão no diretório pelo conteúdo original dos arquivos, que estão armazenados nos servidores do Git LFS. Mais informações sobre o Git LFS e sobre a instalação em mais sistemas operacionais podem ser encontradas no [site oficial](https://git-lfs.com/).  
+
+# Instalação:
 Execute o seguinte comando no terminal para instalar o Git LFS:
 ```console
 $ sudo apt-get install git-lfs
