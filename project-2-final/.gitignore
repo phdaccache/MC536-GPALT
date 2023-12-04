@@ -1,1 +1,3 @@
-data/raw/recipenlg/full_dataset.csv
+data/external
+data/interim
+data/raw
