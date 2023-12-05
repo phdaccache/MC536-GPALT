@@ -67,7 +67,17 @@ RECOMENDACAO(_Orgao_, _IdComponente_, _Tipo_, _FaixaEtaria_, QuantidadeMg)
 
 título do arquivo/base | link | breve descrição
 ----- | ----- | -----
-Origem | [origem.csv](./data/processed/database/origem.csv) | Lorem Ipsum
+origem | [origem.csv](./data/processed/database/origem.csv) | Lorem Ipsum
+receita | [receita.csv](./data/processed/database/receita.csv) | Lorem Ipsum
+ingrediente | [ingrediente.csv](./data/processed/database/ingrediente.csv) | Lorem Ipsum
+ingredientecomposto | [ingredientecomposto.csv](./data/processed/database/ingredientecomposto.csv) | Lorem Ipsum
+sabor | [sabor.csv](./data/processed/database/sabor.csv) | Lorem Ipsum
+classificacao | [classificacao.csv](./data/processed/database/classificacao.csv) | Lorem Ipsum
+componente | [componente.csv](./data/processed/database/componente.csv) | Lorem Ipsum
+orgaopublico | [orgaopublico.csv](./data/processed/database/orgaopublico.csv) | Lorem Ipsum
+ingredientesdasreceitas | [ingredientesdasreceitas.csv](./data/processed/database/ingredientesdasreceitas.csv) | Lorem Ipsum
+componentesdosingredientes | [componentesdosingredientes.csv](./data/processed/database/componentesdosingredientes.csv) | Lorem Ipsum
+recomendacao | [recomendacao.csv](./data/processed/database/recomendacao.csv) | Lorem Ipsum
 
 ## Bases de Dados
 título da base | link | breve descrição
