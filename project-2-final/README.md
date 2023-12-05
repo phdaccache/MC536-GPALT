@@ -145,7 +145,44 @@ Os dados do dataset final estão disponíveis em `data/processed/database`. Os d
 O processo cuidadoso de tratamento de dados permitiu integrar a maior quantidade possível de dados e construir um dataset final com informações úteis para análises sofisticadas.
 
 ## Evolução do Projeto
-Lorem Ipsum
+
+A modelagem cuidadosa na primeira etapa do projeto foi indiscutivelmente necessária para o andamento do projeto. Ao se saber exatamente onde se deseja chegar, basta apenas pensar no passo a passo de como fazer isso.
+
+As principais dificuldades enfrentadas estão relacionadas à grande quantidade de dados. O projeto inteiro foi elaborado para ser executado no [BeakerX](http://beakerx.com/), mas mesmo executando os arquivos localmente houve grande dificuldade em lidar com os dados.
+
+A execução do BeakerX via [Docker](https://www.docker.com/) foi a maneira de construção do dataset final e das análises. O sistema permite aumentar, manualmente, o Heap Size. Os notebooks foram executados com aproximadamente `6 GB`, por ser o limite que os computadores conseguiam tolerar. Mesmo assim, em alguns casos, houve diversos problemas de 'Out of memory'.
+
+As soluções encontradas para isso foram diversas, e a discussão de cada um dos pontos onde houve problemas, bem como as soluções elencadas e a escolhida, são discutidos em mais detalhes nos notebooks. Em linhas gerais, as soluções foram, principalmente, realizar os seguintes comandos concomitantemente:
+
+~~~SQL
+SELECT ...
+FROM CSVREAD('...')
+WHERE/GROUP BY ...;
+~~~
+
+Simplificadamente, essa construção permite filtrar os dados à medida que eles estão lendo lidos dos arquivos CSV, o que evita que todos esses dados sejam importados. Mesmo assim, o tamanho do Heap precisou ser aumentado consideravalmente, principalmente para as análises com o dataset final, que contém mais de `1.8` milhão de ingredientes de diversas receitas.
+
+Para as análises disponibilizadas, há o seguinte filtro na importação desses dados:
+
+~~~SQL
+WHERE UNIDADE <> 'desconhecida'
+      AND UNIDADE <> 'unidade'
+      AND ID < 25000;
+~~~
+
+Assim, a visualização dos dados no notebook `09` considera apenas a importação de receitas cuja unidade esteja definida em `gramas` ou em `mililitros` e receitas com ID no máximo `25000`.
+
+Os resultados com todos os dados finais do dataset podem ser vistos, claramente, apagando essa linha dos imports iniciais. No entanto, as operações de análise são custosas e podem demorar e requerer um alto Heap Size.
+
+O modelo final também sofreu algumas alterações, que dizem respeito a principalmente associar receitas a partir do ID, e não pelo nome. Alguns nomes de receitas chegam a `350` caracteres, e a propagação de dados tão extensos foi evitada justamente para que os arquivos do dataset ocupassem menos memória. Ao se utilizar um ID, o valor não ultrapassa mais de 5 dígitos.
+
+Assim, as principais dificuldades encontradas estão associadas a como lidar com grandes quantidades de dados. Em relação aos processamentos em Python relacionados, houve uma necessidade de dividir as entradas da base do RecipeNLG, que está disponível em um único arquivo csv com mais de 2GB de tamanho.
+
+Essa divisão permitiu que os processamentos não importassem todos os dados em memória diretamente, e foi a solução para tratar as quantidades, que precisavam de tratamento.
+
+Os detalhamentos de dificuldades e soluções pensadas, escolhas durante o processo e explicações estão disponíveis em todos os notebooks Jupyter. Houve um cuidado grande em documentar bem todo o processo, e em mantê-lo reproduzível.
+
+Assim, caso alterações sejam realizadas em qualquer um dos notebooks, basta apenas executá-los todos na ordem em que aparecem para reconstruir o dataset como desejado e realizar as análises.
 
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
