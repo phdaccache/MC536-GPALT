@@ -382,10 +382,17 @@ Italy | Herbs | 69.98933901918977
 #### Pergunta/Análise 1
 
 * Quais são os ingredientes mais centrais nas culinárias de diferentes regiões do mundo?
+  * Análise por centralidade de grau, feito na projeção do grafo da relação Ingrediente -> Receita, conectando dois ingredientes se ambos fazem parte da mesma receita.
 
 #### Pergunta/Análise 2
 
 * É possível definir grupos de alimentos que caracterizam a culinária de uma região do mundo?
+  * Cada ingrediente pode ser utilizado de diferentes formas em diferentes lugares
+    do mundo, o que torna bem dificil gerar comunidades, já que cada ingrediente
+    pode ser usado de diferentes formas. Para conseguir analisar melhor, podemos
+    separamos as receitas por região e geramos a comunidade dos ingredientes pra cada
+    uma, permitindo uma análise sobre as diferentes formas de uso de um determinado
+    ingrediente. O método utilizado o o método de Louvain para obter as comunidades.
 
 ### Perguntas/Análise Propostas mas Não Implementadas
 
