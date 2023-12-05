@@ -211,73 +211,150 @@ Assim, caso alterações sejam realizadas em qualquer um dos notebooks, basta ap
 
 #### Pergunta/Análise 1
 
-* Quais os componentes químicos mais presentes nas receitas em cada região do mundo?
-  * VIEW QtdComponentesPorRegiao
+* ##### Quais os componentes químicos mais presentes nas receitas em cada região do mundo?
+  * Analisando as receitas das regiões do mundo, buscamos descobrir quais componentes químicos são prevalecentes na culinária da região
 
-  * ‘Korea’
-    *  Cholesterol
-    * L-Alanine
-    * Oleic acid
-    *  Nitrogen
-    * Sugars
-  * Agrupamento para todas as regiões também: Colesterol
+##### Resultados dataset final (recorte): 
+* Região 'Korea': 
+
+Nome  | Qtd
+----- | ----- |
+Cholesterol | 107002593.45677505
+L-Alanine | 5388431.31877068
+Oleic acid | 5300048.78170664
+Nitrogen | 3977769.30162428
+Sugars | 3841843.23410611
+C18:1, n-9 | 3699221.6118699596
+Starch | 3697166.59365355
+L-Glutamic acid | 3395701.27689411
+L-Leucine | 3258267.67270505
+Starch, pregelatinized | 3197670.84234906
 
 #### Pergunta/Análise 2
 
-* Quais são as regiões do mundo que utilizam mais de um certo ingrediente?
-  * Análise por frequência
-  * VIEW MaiorUsoAlhoRegioes
+* ##### Quais são as regiões do mundo que utilizam mais de um certo ingrediente?
+    * Dado um ingrediente específico, buscamos analisar que região utiliza esse ingrediente com mais frequência
 
-  * ‘Garlic’
-    * NorthAmerican
-    * SouthernEuropean
-    * LatinAmerican
-    * EastAsian
-    * Indian Subcontinent
+##### Resultados dataset final (recorte): 
+* Ingrediente 'Garlic': 
+
+Origem  | Ingrediente | Freq
+----- | ----- | ----- 
+NorthAmerican | Garlic | 10101
+SouthernEuropean | Garlic | 2181
+LatinAmerican | Garlic | 1752
+EastAsian | Garlic | 1302
+Indian Subcontinent | Garlic | 791
+Caribbean | Garlic | 560
+Middle East | Garlic | 523
+WesternEuropean | Garlic | 510
+South East Asia | Garlic | 401
+Africa | Garlic | 322
+
 
 #### Pergunta/Análise 3
 
-* A partir de uma necessidade alimentar de componentes químicos, quais são os pratos que têm ingredientes com as maiores quantidades de todos eles?
-  * VIEW ComponentesDasReceitas
+*  ##### A partir de uma necessidade alimentar de componentes químicos, quais são os pratos que têm ingredientes com as maiores quantidades de todos eles?
+    * Dado um componente químico específico, buscamos descobrir quais receitas suprem melhor uma necessidade alimentar desse componente.
 
-  * Menos de 2000 mg de Sodium - VIEW ReceitaSodio
-  * De 0.01 mg a 0.03 mg de Vitamin D - VIEW ReceitaVitaminaD
+##### Resultados dataset final (recorte):
+* Necessidade alimentar:
+  * Vitamina D 'Vitamin D' (entre 0.01mg a 0.03mg)
+  * Sódio 'Sodium' (menos de 2000mg)
 
-  * Considerar separadamente e depois pegar a interseção entre as views
-    * ID 2616, CulinaryDB - Congo Tofu
-    * ID 3076, CulinaryDB - Easy Moo Shu Pork
-    * ID 3558, CulinaryDB - Goat Shoulder Braised with Prunes and Preserved Lemons
-    * ID 3847, CulinaryDB - Vietnamese Style Vegetarian Curry Soup
-    * ID 4172, CulinaryDB - Spicy Goat Curried Rice Pilaf
+**VIEW** ReceitasSodio:
+
+Id | Banco Original | Nome da Receita
+----- | ----- | ---- |
+46 | RecipeNLG | Beer Bread
+55 | RecipeNLG | Casserole Italiano
+65 | RecipeNLG | Annie'S Diabetic Candy
+77 | RecipeNLG | Spanish Hamburgers
+78 | RecipeNLG | Egg Drop Soup
+348 | RecipeNLG | Salted Nut Squares
+499 | RecipeNLG | Jiffy Beef Stroganoff
+514 | RecipeNLG | Jackie'S Coconut Pie
+528 | RecipeNLG | Foolproof Fudge
+568 | RecipeNLG | Oatmeal Chocolate Chip Cookies
+
+**VIEW** ReceitasVitaminaD:
+
+Id | Banco Original | Nome da Receita
+----- | ----- | ---- |
+2616 | CulinaryDB | Congo Tofu
+2661 | CulinaryDB | Cape Malay Pickled Fish
+3054 | CulinaryDB | My World Famous Pressure Cooker Chinese Ribs
+3076 | CulinaryDB | Easy Moo Shu Pork
+3078 | CulinaryDB | Chinese Roast Pork
+3086 | CulinaryDB | Chinese Barbequed Spareribs
+3144 | CulinaryDB | Guay Diaw Lawd (Pork Belly, Chicken Wing, and Noodle Stew)
+3558 | CulinaryDB | Goat Shoulder Braised with Prunes and Preserved Lemons
+3825 | CulinaryDB | Vietnamese Pork and Five Spice
+3847 | CulinaryDB | Vietnamese Style Vegetarian Curry Soup
+
+**Interseção (resposta):**
+Id | Banco Original | Nome da Receita
+----- | ----- | ---- |
+2616 | CulinaryDB | Congo Tofu
+3076 | CulinaryDB | Easy Moo Shu Pork
+3558 | CulinaryDB | Goat Shoulder Braised with Prunes and Preserved Lemons
+3847 | CulinaryDB | Vietnamese Style Vegetarian Curry Soup
+4172 | CulinaryDB | Spicy Goat Curried Rice Pilaf
+4414 | CulinaryDB | Kochi Panthar Jhol (Goat Curry)
+4417 | CulinaryDB | Pressure Cooker Goat Curry
+4440 | CulinaryDB | Tofu Vindaloo
+4736 | CulinaryDB | Soondubu Jjigae (Korean Soft Tofu Stew)
+4851 | CulinaryDB | Japanese Simmered Bottle Gourd, Okra, and Tofu
 
 #### Pergunta/Análise 4
 
-* Quanto é necessário consumir de um alimento X para conseguir uma quantidade Y de um nutriente?
-  * VIEW ComponentesDasReceitas (de novo)
+* ##### Quanto é necessário consumir de um alimento X para conseguir uma quantidade Y de um nutriente?
+    * Analisando os dados buscamos saber a quantidade de uma receita que será necessário para atingir uma meta nutricional.
 
-  *Nutriente: ‘Proteins’
-  *Quantidade: 10000 mg
-  *Receita: ID 6220, RecipeNLG (Sugar-Free Apple Pie)
+##### Resultados dataset final:
+* Alimento: ID 6220, RecipeNLG (Sugar-Free Apple Pie)
+* Nutriente: Proteína ('Proteins')
+* Quantidade do Nutriente: 10000 mg
 
-  *Necessidade
-    * 7.81 receitas
+**Quantidade (resposta)**: 7.81
 
 #### Pergunta/Análise 5
 
-* Dado um grupo de classificação de ingredientes, qual país tem mais receitas com ingredientes desse grupo?
-  * Análises por frequência total e por porcentagem
-  * VIEW FreqGrupoIngredientesPorRegiao
-  * VIEW PorcentagemClassificacaoPorPais
+* ##### Dado um grupo de classificação de ingredientes, qual país tem mais receitas com ingredientes desse grupo?
+  * Com a análise de dados buscamos descobrir que pais utiliza mais de um grupo de alimentos em suas receitas.
 
-  * Categoria: ‘Herbs’
-    * Frequência e porcentagem apresentaram resultados diferentes
-    * Quantidade de receitas disponível influencia os dados - qual a métrica mais adequada?
+##### Resultados dataset final (recorte):
+  * Grupo de alimentos: Ervas ('Herbs')
+  * Por frequência absoluta:
+
+País | Categoria | Receitas
+----- | ----- | -----
+USA | Herbs | 7837
+Italy | Herbs | 5252
+Mexico | Herbs | 1894
+France | Herbs | 1299
+Greece | Herbs | 73
+
+  * Por porcentagem:
+
+País | Categoria | Receitas
+----- | ----- | -----
+Thailand | Herbs | 82.6086956521739
+Greece | Herbs | 78.90792291220556
+China | Herbs | 73.11370882040383
+Spain | Herbs | 73.03921568627452
+Italy | Herbs | 69.98933901918977
 
 #### Pergunta/Análise 6
 
-* Qual região do mundo é mais propensa a ter problemas de altos consumos de sódio?
-  * VIEW NaMedioPorRefeicaoEmMgPorRegiao
-  * Recomendações do NIH-US
+* ##### Qual região do mundo é mais propensa a ter problemas de altos consumos de sódio?
+  * Analisando os dados, queremos descobrir que país consome uma maior quantidade de sódio diariamente e, portanto, é mais propenso a ter problemas de alto consumo de sódio, como, por exemplo, hipertensão
+
+##### Resultados dataset final:
+  * Recomendações do NIH-US ( limite de 1500mg sódio por dia)
+  * País: Portugal 
+
+**Resultado:** Possui a maior média de sódio por receita
 
   * A média de sódio em uma receita de cada região ultrapassa a recomendação máxima permitida?
     * Em geral, SIM!
