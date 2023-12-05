@@ -59,7 +59,7 @@ COMPONENTE(_Id_, _Tipo_, Nome)
 ORGAOPUBLICO(_Nome_)
 
 INGREDIENTESDASRECEITAS(_IdReceita_, _Banco_, _Ingrediente_, _Unidade_, Quantidade)
-	(IdReceita, Banco) chave estrangeira -> RECEITA(Id, BancoOriginal)  
+	(IdReceita, Banco) chave estrangeira -> RECEITA(Id, BancoOriginal)
     Ingrediente chave estrangeira -> INGREDIENTE(Nome)
 
 COMPONENTESDOSINGREDIENTES(_Ingrediente_, _IdComponente_, _Tipo_, _Unidade_, Quantidade)
@@ -101,7 +101,48 @@ CulinaryDB | [link](https://cosylab.iiitd.edu.in/culinarydb/) | Dados de receita
 Nutrient Recommendations: Dietary Reference Intakes (DRI) | [link](https://ods.od.nih.gov/HealthInformation/nutrientrecommendations.aspx) | Recomendações diárias de consumo de diversos nutrientes, divididos por faixa etária.
 
 ## Detalhamento do Projeto
-Lorem Ipsum
+
+##### Convertendo dados disponíveis online
+
+Inicialmente, foi necessário extrair os dados da página web da base [DRI](https://ods.od.nih.gov/HealthInformation/nutrientrecommendations.aspx), pois esses dados estão apenas disponíveis na forma de tabelas sem nenhum modelo lógico. Como os dados de componentes e nutrientes da base do FooDB estão, em sua grande maioria, disponibilizados todos com medidas de massa (miligramas, gramas, ...), houve um cuidado nessa etapa de realizar as conversões necessárias a partir dos dados disponíveis para que todas as medidas estivessem em miligramas.
+
+O tratamento das medidas, principalmente considerando as unidades, foi essencial para produzir um dataset que atingisse os objetivos propostos.
+
+##### Integrando ingredientes
+
+Em relação ao processo de integração das bases, houve um cuidado especial na integração de ingredientes diferentes de outras bases. A elaboração de um único arquivo csv `associacaofinal.csv`, que pode ser baixado na versão completa da pasta `data`, foi crucial para integrar informações de bases distintas.
+
+Nesse caso, esse arquivo foi elaborado em duas colunas, `nome_ingrediente`, que representa o nome de algum ingrediente em qualquer uma das bases de receitas em letras minúsculas, e `nome_foodb`, que representa o nome do ingrediente na base do FooDB. É importante ressaltar, também, que há menções a ingredientes compostos da base do CulinaryDB nesse arquivo.
+
+A consideração de apenas letras minúsculas na associação de ingredientes, com subsequente conversão dos nomes de todos ingredientes originais das bases para letras minúsculas possibilitou uma integração ainda maior.
+
+Esse processo de integração dos nomes dos ingredientes foi feito de maneira completamente manual. Mais detalhes sobre esse processo estão disponíveis no notebook Jupyter `00`.
+
+##### Tratamento e transformação de dados sobre quantidades
+
+Nas bases consideradas, grande parte das receitas têm informações sobre quantidades dos ingredientes associados a cada uma delas. No entanto, esses dados estão disponíveis dentro de uma única string, contendo dados sobre a quantidade, a unidade (não padronizada) e o nome do ingrediente.
+
+Para construir um dataset mais rico, foi necessário tratar esses dados. Assim, um processo cuidadoso de tratamento de dados foi feito em Python para separar unidades, quantidades e ingredientes desses dados da forma como foi proposto nos modelos.
+
+Houve um cuidado grande em converter as medidas de, por exemplo, `1 cup` para algo quantificável de maneira mais fácil: `236.588 mililitros`. Isso tem o objetivo de padronizar melhor as unidades e quantidades do dataset, o que facilita análises e pesquisas sobre esses dados.
+
+##### Lidando com informações inconsistentes
+
+No processo de construção do dataset, foi possível identificar algumas informações inconsistentes nas bases originais.
+
+A base do FooDB, por exemplo, associa alguns componentes a ingredientes que não estão catalogados em lugar nenhum. Algumas informações sobre categorias dos ingredientes também apresentam algumas inconsistências.
+
+Um tratamento foi realizado em todos esses dados.
+
+##### Notebooks Jupyter
+
+Todo esse processo discutido está mais detalhado em notebooks Jupyter, disponíveis na pasta `notebooks`.
+
+Foram elaborados `7` notebooks de processamento dos dados originais para dados intermediários e `2` notebooks detalhando a construção final do dataset, integrando dados intermediários, além de outro notebook realizando análises em SQL.
+
+Os dados do dataset final estão disponíveis em `data/processed/database`. Os dados originais da base, bem como intermediários, estão disponíveis no seguinte [link](https://drive.google.com/drive/folders/1HDvjRKjUg5BNV-Lmlv3nzuP9vkPdmGYo?usp=sharing) (também disponível no README da pasta data).
+
+O processo cuidadoso de tratamento de dados permitiu integrar a maior quantidade possível de dados e construir um dataset final com informações úteis para análises sofisticadas.
 
 ## Evolução do Projeto
 Lorem Ipsum
@@ -156,7 +197,7 @@ Lorem Ipsum
 * Quanto é necessário consumir de um alimento X para conseguir uma quantidade Y de um nutriente?
   * VIEW ComponentesDasReceitas (de novo)
 
-  *Nutriente: ‘Proteins’ 
+  *Nutriente: ‘Proteins’
   *Quantidade: 10000 mg
   *Receita: ID 6220, RecipeNLG (Sugar-Free Apple Pie)
 
@@ -199,7 +240,7 @@ Lorem Ipsum
 #### Pergunta/Análise 1
 
 * Quais os componentes químicos mais presentes na dieta média de um morador de um país X? E os menos presentes?
-  * Analisando as principais receitas de um país específico, é possível fazer uma estimativa do consumo nutricional médio, mostrando os pontos de maior déficit nutricional do local 
+  * Analisando as principais receitas de um país específico, é possível fazer uma estimativa do consumo nutricional médio, mostrando os pontos de maior déficit nutricional do local
 
 #### Pergunta/Análise 2
 
