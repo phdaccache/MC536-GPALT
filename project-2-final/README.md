@@ -401,10 +401,14 @@ Italy | Herbs | 69.98933901918977
 * Quais os componentes químicos mais presentes na dieta média de um morador de um país X? E os menos presentes?
   * Analisando as principais receitas de um país específico, é possível fazer uma estimativa do consumo nutricional médio, mostrando os pontos de maior déficit nutricional do local
 
+![Ingredientes](assets/ingredientes.png)
+
 #### Pergunta/Análise 2
 
 * Quais são os países com as alimentações mais balanceadas nutricionalmente? E quais são os com as menos balanceadas?
   * Analisando o banco de dados é possível ter uma estimativa média nutricional dos países e com isso podemos comparar o padrão alimentar de diversos países diferentes
+
+![Comunidade](assets/community.png)
 
 #### Pergunta/Análise 3
 
