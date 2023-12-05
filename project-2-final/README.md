@@ -99,9 +99,18 @@ Nutrient Recommendations: Dietary Reference Intakes (DRI) | [link](https://ods.o
 ### Perguntas/Análise com Resposta Implementada
 
 #### Pergunta/Análise X
-> * Lorem Ipsum
->   
->   * Lorem Ipsum
+> * Quais os componentes químicos mais presentes nas receitas em cada região do mundo?
+>   * VIEW QtdComponentesPorRegiao
+> 
+>   * ‘Korea’
+>     *  Cholesterol
+>     * L-Alanine
+>     * Oleic acid
+>     *  Nitrogen
+>     * Sugars
+>   * Agrupamento para todas as regiões também: Colesterol
+
+Agrupamento para todas as regiões também: Colesterol
 
 ### Perguntas/Análise Propostas mas Não Implementadas
 
