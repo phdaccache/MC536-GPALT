@@ -147,6 +147,14 @@ Para construir um dataset mais rico, foi necessário tratar esses dados. Assim, 
 
 Houve um cuidado grande em converter as medidas de, por exemplo, `1 cup` para algo quantificável de maneira mais fácil: `236.588 mililitros`. Isso tem o objetivo de padronizar melhor as unidades e quantidades do dataset, o que facilita análises e pesquisas sobre esses dados.
 
+~~~
+"1/2 cup canola oil, divided"
+               |
+               V
+(ingrediente, quantidade, unidade)
+"canola oil","118.294","mililitro"
+~~~
+
 ##### Lidando com informações inconsistentes
 
 No processo de construção do dataset, foi possível identificar algumas informações inconsistentes nas bases originais.
@@ -173,7 +181,7 @@ As principais dificuldades enfrentadas estão relacionadas à grande quantidade 
 
 A execução do BeakerX via [Docker](https://www.docker.com/) foi a maneira de construção do dataset final e das análises. O sistema permite aumentar, manualmente, o Heap Size. Os notebooks foram executados com aproximadamente `6 GB`, por ser o limite que os computadores conseguiam tolerar. Mesmo assim, em alguns casos, houve diversos problemas de 'Out of memory'.
 
-As soluções encontradas para isso foram diversas, e a discussão de cada um dos pontos onde houve problemas, bem como as soluções elencadas e a escolhida, são discutidos em mais detalhes nos notebooks. Em linhas gerais, as soluções foram, principalmente, realizar os seguintes comandos concomitantemente:
+As soluções encontradas para isso foram diversas, e a discussão de cada um dos pontos onde houve problemas, bem como as soluções elencadas e a escolhida, são discutidos em mais detalhes nos notebooks. Em linhas gerais, as soluções foram, principalmente, realizar os comandos de ler CSV e filtrar os dados concomitantemente:
 
 ~~~SQL
 SELECT ...
@@ -181,7 +189,7 @@ FROM CSVREAD('...')
 WHERE/GROUP BY ...;
 ~~~
 
-Simplificadamente, essa construção permite filtrar os dados à medida que eles estão lendo lidos dos arquivos CSV, o que evita que todos esses dados sejam importados. Mesmo assim, o tamanho do Heap precisou ser aumentado consideravalmente, principalmente para as análises com o dataset final, que contém mais de `1.8` milhão de ingredientes de diversas receitas.
+Simplificadamente, essa construção permite filtrar os dados à medida que eles estão lendo lidos dos arquivos CSV, o que evita que todos esses dados sejam importados. Mesmo assim, o tamanho do Heap precisou ser aumentado consideravalmente, principalmente para as análises com o dataset final, que contém mais de `1.8` milhão de associações entre ingredientes e as diversas receitas.
 
 Para as análises disponibilizadas, há o seguinte filtro na importação desses dados:
 
@@ -195,7 +203,16 @@ Assim, a visualização dos dados no notebook `09` considera apenas a importaç�
 
 Os resultados com todos os dados finais do dataset podem ser vistos, claramente, apagando essa linha dos imports iniciais. No entanto, as operações de análise são custosas e podem demorar e requerer um alto Heap Size.
 
-O modelo final também sofreu algumas alterações, que dizem respeito a principalmente associar receitas a partir do ID, e não pelo nome. Alguns nomes de receitas chegam a `350` caracteres, e a propagação de dados tão extensos foi evitada justamente para que os arquivos do dataset ocupassem menos memória. Ao se utilizar um ID, o valor não ultrapassa mais de 5 dígitos.
+O modelo final também sofreu algumas alterações, que dizem respeito a principalmente associar receitas a partir do ID, e não pelo nome. Alguns nomes de receitas são muito extensos, e a propagação de dados tão extensos foi evitada justamente para que os arquivos do dataset ocupassem menos memória. Ao se utilizar um ID, o valor não ultrapassa mais de 5 dígitos.
+
+~~~
+"Cuban Via Miami Feast: Mashed Plantains with Oh, Baby!
+ Garlic-Tomato Shrimp on Top, Grilled Flank Steak with
+ Lime and Onions, Quick Rice with Black Beans"
+                      |
+                      V
+                   "20805"
+~~~
 
 Assim, as principais dificuldades encontradas estão associadas a como lidar com grandes quantidades de dados. Em relação aos processamentos em Python relacionados, houve uma necessidade de dividir as entradas da base do RecipeNLG, que está disponível em um único arquivo csv com mais de 2GB de tamanho.
 
