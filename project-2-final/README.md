@@ -2,15 +2,15 @@
 
 ## Motivação e Contexto
 
-> Lorem Ipsum
+Lorem Ipsum
 
 ## Slides
 
 ### Apresentação Prévia
-> [PDF](./slides/apresentacao_previa.pdf)
+[PDF](./slides/apresentacao_previa.pdf)
 
 ### Apresentação Final
-> [PDF](./slides/apresentacao_final.pdf)
+[PDF](./slides/apresentacao_final.pdf)
 
 ### Vídeo da apresentação
 [![Apresentação Projeto Final GPALT](./assets/video_cover.png)](https://www.youtube.com/watch?v=Owbyjcj-Lg4&feature=youtu.be "Apresentação Projeto Final GPALT")
@@ -89,10 +89,10 @@ CulinaryDB | [link](https://cosylab.iiitd.edu.in/culinarydb/) | Dados de receita
 Nutrient Recommendations: Dietary Reference Intakes (DRI) | [link](https://ods.od.nih.gov/HealthInformation/nutrientrecommendations.aspx) | Recomendações diárias de consumo de diversos nutrientes, divididos por faixa etária.
 
 ## Detalhamento do Projeto
-> Lorem Ipsum
+Lorem Ipsum
 
 ## Evolução do Projeto
-> Lorem Ipsum
+Lorem Ipsum
 
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
