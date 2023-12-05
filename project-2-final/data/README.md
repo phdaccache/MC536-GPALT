@@ -8,4 +8,4 @@ Uma alternativa para armazenar os dados foi o LFS. No entanto, no contexto do pr
 
 Assim, os dados podem ser baixados a partir do seguinte [link](https://drive.google.com/drive/folders/1HDvjRKjUg5BNV-Lmlv3nzuP9vkPdmGYo?usp=sharing).
 
-Para a execução dos notebooks de construção da base, os arquivos dessa pasta devem ser baixados e colocados dentro desse diretório ```data```. Isso não é necessário para a execução dos notebooks de SQL, porque os dados finais da base já estão disponíveis na subpasta ```processed```.
+Para a execução dos notebooks de construção da base, os arquivos dessa pasta devem ser baixados e colocados dentro desse diretório ```data```. Isso não é necessário para a execução do notebook de análises de SQL (notebook 09), porque os dados finais da base já estão disponíveis na subpasta ```processed```.
