@@ -96,25 +96,110 @@ Nutrient Recommendations: Dietary Reference Intakes (DRI) | [link](https://ods.o
 
 ## Perguntas de Pesquisa/Análise Combinadas e Respectivas Análises
 
-### Perguntas/Análise com Resposta Implementada
+### Perguntas/Análise com Resposta Implementada Modelo Relacional
 
-#### Pergunta/Análise X
-> * Quais os componentes químicos mais presentes nas receitas em cada região do mundo?
->   * VIEW QtdComponentesPorRegiao
-> 
->   * ‘Korea’
->     *  Cholesterol
->     * L-Alanine
->     * Oleic acid
->     *  Nitrogen
->     * Sugars
->   * Agrupamento para todas as regiões também: Colesterol
+#### Pergunta/Análise 1
 
-Agrupamento para todas as regiões também: Colesterol
+* Quais os componentes químicos mais presentes nas receitas em cada região do mundo?
+  * VIEW QtdComponentesPorRegiao
+
+  * ‘Korea’
+    *  Cholesterol
+    * L-Alanine
+    * Oleic acid
+    *  Nitrogen
+    * Sugars
+  * Agrupamento para todas as regiões também: Colesterol
+
+#### Pergunta/Análise 2
+
+* Quais são as regiões do mundo que utilizam mais de um certo ingrediente?
+  * Análise por frequência
+  * VIEW MaiorUsoAlhoRegioes
+
+  * ‘Garlic’
+    * NorthAmerican
+    * SouthernEuropean
+    * LatinAmerican
+    * EastAsian
+    * Indian Subcontinent
+
+#### Pergunta/Análise 3
+
+* A partir de uma necessidade alimentar de componentes químicos, quais são os pratos que têm ingredientes com as maiores quantidades de todos eles?
+  * VIEW ComponentesDasReceitas
+
+  * Menos de 2000 mg de Sodium - VIEW ReceitaSodio
+  * De 0.01 mg a 0.03 mg de Vitamin D - VIEW ReceitaVitaminaD
+
+  * Considerar separadamente e depois pegar a interseção entre as views
+    * ID 2616, CulinaryDB - Congo Tofu
+    * ID 3076, CulinaryDB - Easy Moo Shu Pork
+    * ID 3558, CulinaryDB - Goat Shoulder Braised with Prunes and Preserved Lemons
+    * ID 3847, CulinaryDB - Vietnamese Style Vegetarian Curry Soup
+    * ID 4172, CulinaryDB - Spicy Goat Curried Rice Pilaf
+
+#### Pergunta/Análise 4
+
+* Quanto é necessário consumir de um alimento X para conseguir uma quantidade Y de um nutriente?
+  * VIEW ComponentesDasReceitas (de novo)
+
+  *Nutriente: ‘Proteins’ 
+  *Quantidade: 10000 mg
+  *Receita: ID 6220, RecipeNLG (Sugar-Free Apple Pie)
+
+  *Necessidade
+    * 7.81 receitas
+
+#### Pergunta/Análise 5
+
+* Dado um grupo de classificação de ingredientes, qual país tem mais receitas com ingredientes desse grupo?
+  * Análises por frequência total e por porcentagem
+  * VIEW FreqGrupoIngredientesPorRegiao
+  * VIEW PorcentagemClassificacaoPorPais
+
+  * Categoria: ‘Herbs’
+    * Frequência e porcentagem apresentaram resultados diferentes
+    * Quantidade de receitas disponível influencia os dados - qual a métrica mais adequada?
+
+#### Pergunta/Análise 6
+
+* Qual região do mundo é mais propensa a ter problemas de altos consumos de sódio?
+  * VIEW NaMedioPorRefeicaoEmMgPorRegiao
+  * Recomendações do NIH-US
+
+  * A média de sódio em uma receita de cada região ultrapassa a recomendação máxima permitida?
+    * Em geral, SIM!
+    * Estima-se que mais de 2 milhões de pessoas morrem, por ano, devido a altos consumos de sódio
+
+### Perguntas/Análise com Resposta Implementada Modelo de Grafos
+
+#### Pergunta/Análise 1
+
+* Quais são os ingredientes mais centrais nas culinárias de diferentes regiões do mundo?
+
+#### Pergunta/Análise 2
+
+* É possível definir grupos de alimentos que caracterizam a culinária de uma região do mundo?
 
 ### Perguntas/Análise Propostas mas Não Implementadas
 
-#### Pergunta/Análise X
-> * Lorem Ipsum
->   
->   * Lorem Ipsum
+#### Pergunta/Análise 1
+
+* Quais os componentes químicos mais presentes na dieta média de um morador de um país X? E os menos presentes?
+  * Analisando as principais receitas de um país específico, é possível fazer uma estimativa do consumo nutricional médio, mostrando os pontos de maior déficit nutricional do local 
+
+#### Pergunta/Análise 2
+
+* Quais são os países com as alimentações mais balanceadas nutricionalmente? E quais são os com as menos balanceadas?
+  * Analisando o banco de dados é possível ter uma estimativa média nutricional dos países e com isso podemos comparar o padrão alimentar de diversos países diferentes
+
+#### Pergunta/Análise 3
+
+* Os pares de ingredientes mais comuns em uma determinada região do mundo se complementam nutricionalmente?
+  * Com essa análise é possível entender como os sabores principais de uma culinária são formados e em como eles impactam nutricionalmente a dieta de uma região.
+
+#### Pergunta/Análise 4
+
+* Quais os componentes químicos presentes nos sabores mais comuns ao redor do mundo?
+  * Com a análise é possível entender melhor que forma os principais sabores do mundo são compostos.
