@@ -8,12 +8,12 @@ Tendo o Docker instalado, após clonar o repositório localmente é possível ex
 
 O caminho é o caminho até a pasta do repositório. Após executar esse comando, um link será gerado:
 
-~
+~~~
 http://04d735361a78:8888/?token=8cfaf01d9c80f901ce0fac3146eeb0631313f5e97d5087d3&token=8cfaf01d9c80f901ce0fac3146eeb0631313f5e97d5087d3
-~
+~~~
 
 Basta alterar a parte até o `:` por `localhost` e abrir em um navegador:
 
-~
+~~~
 http://localhost:8888/?token=8cfaf01d9c80f901ce0fac3146eeb0631313f5e97d5087d3&token=8cfaf01d9c80f901ce0fac3146eeb0631313f5e97d5087d3
-~
+~~~
