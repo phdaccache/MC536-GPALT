@@ -106,7 +106,28 @@ Nutrient Recommendations: Dietary Reference Intakes (DRI) | [link](https://ods.o
 
 Inicialmente, foi necessário extrair os dados da página web da base [DRI](https://ods.od.nih.gov/HealthInformation/nutrientrecommendations.aspx), pois esses dados estão apenas disponíveis na forma de tabelas sem nenhum modelo lógico. Como os dados de componentes e nutrientes da base do FooDB estão, em sua grande maioria, disponibilizados todos com medidas de massa (miligramas, gramas, ...), houve um cuidado nessa etapa de realizar as conversões necessárias a partir dos dados disponíveis para que todas as medidas estivessem em miligramas.
 
-O tratamento das medidas, principalmente considerando as unidades, foi essencial para produzir um dataset que atingisse os objetivos propostos.
+O tratamento das medidas, principalmente considerando as unidades, foi essencial para produzir um dataset que atingisse os objetivos propostos. Um exemplo dessa conversão pode ser visto no seguinte trecho do código em python utilizado, que mapeava diferentes medidas para referências em litros e kg, respectivamente:
+
+~~~python
+weight = {
+        "gram": 0.001,
+        "ounce" : 0.0283495,
+        "pond" :  0.45359237,
+        "kilogram" : 1,
+    }
+volumn = {
+        "cup": 0.236588,
+        "tablespoon" : 0.0147868,
+        "teaspoon" : 0.00492892,
+        "quart": 0.946353,
+        "galon": 3.78541,
+        "liters": 1,
+        "mililiter": 0.001,
+        "can": 0.3548824,
+        "stick": 0.12,
+        'pint': 0.473176,
+    }
+~~~
 
 ##### Integrando ingredientes
 
