@@ -24,7 +24,39 @@
 ### Modelo Lógico Relacional
 
 ~~~
-Lorem Ipsum
+ORIGEM(_Nome_, Tipo)
+
+RECEITA(_Id_, _BancoOriginal_, Nome, Origem)
+	Origem chave estrangeira -> ORIGEM(Nome)
+
+INGREDIENTE(_Nome_, Classificacao)
+	Classificacao chave estrangeira -> CLASSIFICACAO(Nome)
+
+INGREDIENTECOMPOSTO(_IngredienteComposto_, _IngredienteOriginal_)
+	IngredienteComposto chave estrangeira -> INGREDIENTE(Nome)
+	IngredienteOriginal chave estrangeira -> INGREDIENTE(Nome)
+
+SABOR(_Id_, Ingrediente1, Ingrediente2, Quantidade)
+	Ingrediente1 chave estrangeira -> INGREDIENTE(Nome)
+	Ingrediente2 chave estrangeira -> INGREDIENTE(Nome)
+
+CLASSIFICACAO(_Nome_, CategoriaSuperior)
+
+COMPONENTE(_Id_, _Tipo_, Nome)
+
+ORGAOPUBLICO(_Nome_)
+
+INGREDIENTESDASRECEITAS(_IdReceita_, _Banco_, _Ingrediente_, _Unidade_, Quantidade)
+	(IdReceita, Banco) chave estrangeira -> RECEITA(Id, BancoOriginal)  
+    Ingrediente chave estrangeira -> INGREDIENTE(Nome)
+
+COMPONENTESDOSINGREDIENTES(_Ingrediente_, _IdComponente_, _Tipo_, _Unidade_, Quantidade)
+	Ingrediente chave estrangeira -> INGREDIENTE(Nome)
+	(IdComponente, Tipo) chave estrangeira -> COMPONENTE(Id, Tipo)
+
+RECOMENDACAO(_Orgao_, _IdComponente_, _Tipo_, _FaixaEtaria_, QuantidadeMg)
+	Orgao chave estrangeira -> ORGAO(Nome)
+	(IdComponente, Tipo) chave estrangeira -> COMPONENTE(Id, Tipo)
 ~~~
 
 ### Modelo Lógico de Grafos
