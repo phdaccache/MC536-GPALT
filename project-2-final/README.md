@@ -67,7 +67,7 @@ RECOMENDACAO(_Orgao_, _IdComponente_, _Tipo_, _FaixaEtaria_, QuantidadeMg)
 
 título do arquivo/base | link | breve descrição
 ----- | ----- | -----
-Origem | ![origem.csv](./data/processed/database/origem.csv) | Lorem Ipsum
+Origem | [origem.csv](./data/processed/database/origem.csv) | Lorem Ipsum
 
 ## Bases de Dados
 título da base | link | breve descrição
