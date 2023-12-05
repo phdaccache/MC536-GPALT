@@ -23,6 +23,8 @@
 
 ### Modelo Lógico Relacional
 
+<u>Nome</u>
+
 ~~~
 ORIGEM(<u>Nome</u>, Tipo)
 
