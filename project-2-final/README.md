@@ -2,17 +2,29 @@
 
 ## Motivação e Contexto
 
-Lorem Ipsum
+Num contexto global de alto acesso à informação livre e disponível pela internet, é essencial que saibamos utilizar essas informações para extrair dados brutos e realizar análises que sirvam para estudarmos possíveis padrões acerca de tópicos variados. Além disso, é importante que consigamos contribuir, utilizando estratégias de engenharia de dados, para que esses dados disponíveis se tornem, cada vez mais, dados de alta qualidade, sem inconsistências e bem organizados.
+
+Tendo isso em vista, extraímos, para esse projeto, diversos dados relacionadas à alimentação. Os dados que extraímos foram encontrados na internet, são disponíveis gratuitamente e podem ser acessados neste mesmo diretório. Eles englobam dados relacionados a receitas (com ingredientes e quantidades), alimentos, componentes químicos desses alimentos, nutrientes presentes neles e recomendações nutricionais diárias recomendadas por órgãos de saúde.
+
+Reunimos essas bases e montamos um dataset que integrasse todas elas. Com esses novos dados montados, fomos capazes de levantar e reunir, em modelos de bancos de dados, diversas informações que extraímos das bases utilizadas sem dados imprecisos e incorretos, sem recortes significativos dos dados originais, sem inconsistências, com padronizações de medidas e unidades e com uma documentação acessível e executável em ambiente [Jupyter](https://jupyter.org/).
+
+Além de agruparmos e refinarmos essas informações, realizamos análises para tentarmos levantar alguns padrões sobre o contexto global, pessoal e químico sobre alimentação. Realizamos, primeiramente, análises num modelo de banco de dados relacional utilizando a linguagem de consulta SQL.
+
+Além disso, também criamos um banco de dados em grafos para podermos realizar análises que são mais apropriados nesse modelo. Essas análises foram importantes também para mostrarmos a flexibilidade de nossos dados, que facilmente podem ser convertidos em diversos modelos de bancos de dados, para que, por exemplo, mais análises se tornem possíveis. As análises realizadas, nos dois modelos citados, estão documentadas no repositório.
 
 ## Slides
 
 ### Apresentação Prévia
+Estes slides representam a proposta original do projeto.
+
 [PDF](./slides/apresentacao_previa.pdf)
 
 ### Apresentação Final
+Estes slides representam o resultado final do projeto.
+
 [PDF](./slides/apresentacao_final.pdf)
 
-### Vídeo da apresentação
+### Vídeo da apresentação (link do YouTube)
 [![Apresentação Projeto Final GPALT](./assets/video_cover.png)](https://www.youtube.com/watch?v=Owbyjcj-Lg4&feature=youtu.be "Apresentação Projeto Final GPALT")
 
 ## Modelo Conceitual
@@ -68,14 +80,14 @@ RECOMENDACAO(_Orgao_, _IdComponente_, _Tipo_, _FaixaEtaria_, QuantidadeMg)
 título do arquivo/base | link | breve descrição
 ----- | ----- | -----
 origem | [origem.csv](./data/processed/database/origem.csv) | Locais de origem das receitas
-receita | [receita.csv](./data/processed/database/receita.csv) | Receitas de ID único com suas origens e bancos originais
+receita | [receita.csv](./data/processed/database/receita.csv) | Receitas com suas origens e bancos originais
 ingrediente | [ingrediente.csv](./data/processed/database/ingrediente.csv) | Ingredientes com suas respectivas classificações
-ingredientecomposto | [ingredientecomposto.csv](./data/processed/database/ingredientecomposto.csv) | Ingredientes formados por pelo menos 2 ingredientes
+ingredientecomposto | [ingredientecomposto.csv](./data/processed/database/ingredientecomposto.csv) | Composição de ingredientes formados por pelo menos 2 ingredientes
 sabor | [sabor.csv](./data/processed/database/sabor.csv) | Quantidade de componentes em comum entre dois ingredientes
 classificacao | [classificacao.csv](./data/processed/database/classificacao.csv) | Classificações e seus subtipos
 componente | [componente.csv](./data/processed/database/componente.csv) | Componentes dos ingredientes (componentes químicos e nutrientes)
 orgaopublico | [orgaopublico.csv](./data/processed/database/orgaopublico.csv) | Nome do órgão público responsável pelas recomendações
-ingredientesdasreceitas | [ingredientesdasreceitas.csv](./data/processed/database/ingredientesdasreceitas.csv) | Ingredientes e suas quantidades para cada receita de ID único
+ingredientesdasreceitas | [ingredientesdasreceitas.csv](./data/processed/database/ingredientesdasreceitas.csv) | Ingredientes e suas quantidades para cada receita
 componentesdosingredientes | [componentesdosingredientes.csv](./data/processed/database/componentesdosingredientes.csv) | Componentes, seus tipos e quantidades para cada ingrediente
 recomendacao | [recomendacao.csv](./data/processed/database/recomendacao.csv) | Recomendações de quantidades dos componentes separadas por faixa etária
 
