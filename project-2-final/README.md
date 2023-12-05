@@ -23,10 +23,8 @@
 
 ### Modelo Lógico Relacional
 
-<ins>Nome</ins>
-
 ~~~
-ORIGEM(<u>Nome</u>, Tipo)
+ORIGEM(_Nome_, Tipo)
 
 RECEITA(_Id_, _BancoOriginal_, Nome, Origem)
 	Origem chave estrangeira -> ORIGEM(Nome)
